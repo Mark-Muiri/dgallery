@@ -37,7 +37,7 @@ def pics_of_day(request):
     html = f'''
         <html>
             <body>
-                <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Pics for {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
@@ -55,7 +55,7 @@ def past_days_pics(request,past_date):
     html = f'''
         <html>
             <body>
-                <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+                <h1>Picss for {day} {date.day}-{date.month}-{date.year}</h1>
             </body>
         </html>
             '''
