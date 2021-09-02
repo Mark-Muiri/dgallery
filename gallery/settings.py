@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'picpush',
-    # 'bootstrap4',
+INSTALLED_APPS = [    
+    'picpush.apps.PicpushConfig',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # "bootstrap4",
+    
     
 ]
 

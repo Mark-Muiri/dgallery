@@ -19,5 +19,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('picpush/',include('picpush.urls'))
+    path('',include('picpush.urls'))
 ]
