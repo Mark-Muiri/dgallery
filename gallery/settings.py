@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+
 import cloudinary
-import cloudinary.uploader
 import cloudinary.api
+import cloudinary.uploader
 
 # import cloudinary
 
@@ -49,6 +50,12 @@ INSTALLED_APPS = [
     
     
 ]
+cloudinary.config(
+  cloud_name = "ychinga",
+  api_key = "861184584993875",
+  api_secret = "cKfusCJSyO2CKwERnJI0NIP3uUo",
+)
+
 
 
 MIDDLEWARE = [
