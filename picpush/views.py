@@ -1,5 +1,3 @@
-
- 
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Image, Category, Location
@@ -15,7 +13,7 @@ def search_results(request):
         searched_images = Image.search_by_category(category)
         message = f"{category}"
         print(searched_images)
-        return render(request, 'all-images/search.html', {"message": message, "images": searched_images})
+        return render(request, 'all-pics/search.html', {"message": message, "images": searched_images})
     else:
         message = "You haven't searched for any image category"
         return render(request, 'all-pics/search.html', {"message": message})
