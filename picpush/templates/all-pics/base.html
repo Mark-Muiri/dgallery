@@ -3,37 +3,43 @@
 {% load cloudinary %}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
 
   {% if title %}
   <title>Picpush - {{title}}</title>
   {% else %}
-    <title> Picpush </title>
+  <title> Picpush </title>
   {% endif %}
 
   {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/basepics.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/basepics.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
   {% endblock %}
 
 
 </head>
+
 <body>
   {% include "navbar.html" %}
 
   {% block content %} {%endblock%}
 
-    {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %}
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
 </body>
+
 </html>

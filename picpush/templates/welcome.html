@@ -1,48 +1,38 @@
 {%extends 'all-pics/base.html'%}
-
+{% load static %}
+{% load bootstrap4 %}
 {% block content %}
-
-{{block.super}}
+<LInk:css></LInk:css>
 <div class="container">
-    <div class="row">
-        <div class="col-md-8" id="intro">
-            <h1>  </h1>
-        </div>
-    </div>
+  <div class="row row-cols-2 row-cols-md-2 g-4">
 
-    <div class="col-md-4" id="landing">
-        <img src="  " alt="">
-    </div>
-
-
-</div>
-
-<br><br><br><br>
-<div class="container">
-{% for image in images %}
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
+    {% for image in images %}
+       <div class="col-md-6">
       <div class="card">
-        <img src="{{image.photo.url}}" class="card-img-top" alt="{{image.description}}">
-        <div class="card-body">
-          <h5 class="card-title">{{image.name}}</h5>
-          <p class="card-text">{{image.description}}</p>
-          <p class="card-text">Category: {{image.category}}</p>
-          <p class="card-text">Taken in: {{image.location}}</p>
-          <!-- <input type="text" value="{{image.photo.url}}" id="myInput"> -->
-        <button onclick="Image()">Copy Image Link</button>
+          <hr>
+          <div class="profile-card-2"><img src="{{image.photo.url}}" class="img img-responsive">
 
-        <script>
-        function Image() {
-        var copyText = document.getElementById('myInput')
-        copyText.select();
-        document.execCommand('copy')
-        console.log('Copied Text')
-        }
-        </script>
+          </div>
+
+          <div class="col-md-4">
+            <h4 class="text-center">
+              <div id='butn'>
+                <button class="btn btn-info btn-sm">INFO</button>
+              </div>
+              <div id="Modal_pic" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+                {{image.photo.url}}
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img1">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+              </div>
+          </div>
+
+          {% endfor %}
         </div>
       </div>
-    </div>
-{% endfor %}
-</div>
-{% endblock %}
+      {% endblock %}
