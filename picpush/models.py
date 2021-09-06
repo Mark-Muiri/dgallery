@@ -62,7 +62,11 @@ class Image(models.Model):
     def get_image_by_id(cls,id):
         image = cls.objects.get(id=id)
         return image
-        
+    
+    @classmethod
+    def get_all(cls):
+        images = cls.objects.order_by('-date_posted').all()
+        return images
 
     # @classmethod
     # def search_image(cls,category):
