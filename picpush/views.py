@@ -9,27 +9,24 @@ from .models import Category, Image, Location
 # Create your views here.
 def index(request):
 
-    return render(request,'index.html',)
-def home(request):
-    title = 'Home'
-    date = dt.date.today
-    photos = Image.get_all()
-    return render(request, 'home.html',
-                  {"title": title,
-                   "date": date,
-                   "photos": photos})
+    return render(request, 'index.html',)
 
+
+def home(request):
+    images = Image.objects.all()
+    return render(request, 'welcome.html',{'images':images})
 
 def search_results(request):
-    if 'imagesearch' in request.GET and request.GET["imagesearch"]:
-        category = request.GET.get("imagesearch")
+    if 'image' in request.GET and request.GET["image"]:
+        category = request.GET.get("image")
         searched_images = Image.search_by_category(category)
         message = f"{category}"
-        print(searched_images)
-        return render(request, 'all-pics/search.html', {"message": message, "images": searched_images})
+        
+        return render(request, 'all-pics/search.html',{"message":message,"image": searched_images})
+
     else:
-        message = "You haven't searched for any image category"
-        return render(request, 'all-pics/search.html', {"message": message})
+        message = "You haven't searched for any term"
+    return render(request, 'all-pics/search.html',{"message":message})
 
 def location_images(request, location):
     '''
