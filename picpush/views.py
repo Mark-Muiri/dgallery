@@ -1,14 +1,24 @@
-from django.shortcuts import render
+import datetime as dt
+
 from django.http import HttpResponse
-from .models import Image, Category, Location
+from django.shortcuts import render
+
+from .models import Category, Image, Location
+
 
 # Create your views here.
 def index(request):
 
     return render(request,'index.html',)
 def home(request):
-    images = Image.objects.all()
-    return render(request, 'welcome.html',{'images':images})
+    title = 'Home'
+    date = dt.date.today
+    photos = Image.get_all()
+    return render(request, 'home.html',
+                  {"title": title,
+                   "date": date,
+                   "photos": photos})
+
 
 def search_results(request):
     if 'imagesearch' in request.GET and request.GET["imagesearch"]:
