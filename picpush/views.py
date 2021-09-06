@@ -20,3 +20,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
     return render(request, 'all-pics/search.html',{"message":message})
+
+def location_images(request, location):
+    '''
+    Function to display images per location
+    '''
+    location_images = Image.filter_by_location(location)
+
+    return render(request, 'location.html', {"location_images": location_images, "location":location})
