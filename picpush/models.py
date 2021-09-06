@@ -63,14 +63,19 @@ class Image(models.Model):
         image = cls.objects.get(id=id)
         return image
 
+    # @classmethod
+    # def search_image(cls,category):
+    #     try:
+    #         searched = Category.objects.get(name = category)
+    #         images = Image.objects.filter(category = searched.id)
+    #         return images
+    #     except Exception:
+    #         return  "No images were found for that category"
+
     @classmethod
-    def search_image(cls,category):
-        try:
-            searched = Category.objects.get(name = category)
-            images = Image.objects.filter(category = searched.id)
-            return images
-        except Exception:
-            return  "No images were found for that category"
+    def search_by_category(cls, category):
+        images = cls.objects.filter(category__name__icontains=category)
+        return images
 
     @classmethod
     def filter_by_location(cls,location):

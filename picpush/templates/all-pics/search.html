@@ -9,7 +9,7 @@
 
         {% for image in searched_images%}
         <div class=" card grid-item" >
-            <img style="object-fit: cover;" onclick="showModal('{{image.name}}','{{image.description}}','{{image.image.url}}','{{image.location}}','{{image.category}}')"
+            <img style="object-fit: cover;" onclick="showModal('{{image.name}}','{{image.description}}','{{image.photo.url}}','{{image.location}}','{{image.category}}')"
                 class="image img-responsive" src="{{image.photo.url}}">
         </div>
         {% endfor%}
